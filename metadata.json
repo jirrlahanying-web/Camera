@@ -1,0 +1,8 @@
+{
+  "name": "Ultra Camera Pro",
+  "description": "A professional-grade web camera application built with pure HTML, CSS, and JavaScript.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

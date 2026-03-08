@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ultra Camera Pro</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/style/reset.css">
+    <link rel="stylesheet" href="/style/layout.css">
+    <link rel="stylesheet" href="/style/camera.css">
+    <link rel="stylesheet" href="/style/buttons.css">
+    <link rel="stylesheet" href="/style/animations.css">
+    <link rel="stylesheet" href="/style/pro-mode.css">
+    <link rel="stylesheet" href="/style/responsive.css">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Camera Viewfinder -->
+        <video id="viewfinder" autoplay playsinline muted></video>
+        <canvas id="photo-canvas" style="display: none;"></canvas>
+        
+        <!-- Grid Overlay -->
+        <div id="grid-overlay" class="grid-off"></div>
+        
+        <!-- Focus Ring -->
+        <div id="focus-ring"></div>
+
+        <!-- Top Controls -->
+        <div id="top-bar">
+            <button id="btn-flash" class="icon-btn"><img src="/assets/icons/flash.svg" alt="Flash"></button>
+            <button id="btn-livephoto" class="icon-btn"><img src="/assets/icons/livephoto.svg" alt="Live Photo"></button>
+            <button id="btn-timer" class="icon-btn"><img src="/assets/icons/timer.svg" alt="Timer"></button>
+            <button id="btn-grid" class="icon-btn text-icon">GRID</button>
+            <button id="btn-settings" class="icon-btn"><img src="/assets/icons/settings.svg" alt="Settings"></button>
+        </div>
+
+        <!-- Status Indicators -->
+        <div id="status-indicators">
+            <span id="resolution-indicator">4K</span>
+            <span id="fps-indicator">60FPS</span>
+            <span id="battery-indicator">100%</span>
+        </div>
+
+        <!-- Recording Timer -->
+        <div id="recording-timer" class="hidden">00:00:00</div>
+
+        <!-- Zoom Controls -->
+        <div id="zoom-controls">
+            <div class="zoom-levels">
+                <button class="zoom-btn" data-zoom="0.5">.5</button>
+                <button class="zoom-btn active" data-zoom="1">1x</button>
+                <button class="zoom-btn" data-zoom="2">2</button>
+                <button class="zoom-btn" data-zoom="3">3</button>
+                <button class="zoom-btn" data-zoom="5">5</button>
+            </div>
+            <input type="range" id="zoom-slider" min="0.5" max="100" step="0.1" value="1" class="hidden">
+        </div>
+
+        <!-- Pro Mode Controls -->
+        <div id="pro-controls" class="hidden">
+            <div class="pro-slider-group">
+                <label>ISO <span id="iso-val">AUTO</span></label>
+                <input type="range" id="iso-slider" min="100" max="3200" step="100">
+            </div>
+            <div class="pro-slider-group">
+                <label>EV <span id="ev-val">0.0</span></label>
+                <input type="range" id="ev-slider" min="-2" max="2" step="0.1" value="0">
+            </div>
+            <div class="pro-slider-group">
+                <label>WB <span id="wb-val">AUTO</span></label>
+                <input type="range" id="wb-slider" min="2000" max="9000" step="100">
+            </div>
+        </div>
+
+        <!-- Mode Selector -->
+        <div id="mode-selector">
+            <div class="modes-container">
+                <span class="mode-item" data-mode="PORTRAIT">PORTRAIT</span>
+                <span class="mode-item active" data-mode="PHOTO">PHOTO</span>
+                <span class="mode-item" data-mode="VIDEO">VIDEO</span>
+                <span class="mode-item" data-mode="PRO">PRO</span>
+            </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div id="bottom-bar">
+            <div class="gallery-preview" id="btn-gallery">
+                <img id="gallery-thumb" src="" alt="Gallery" style="display:none;">
+            </div>
+            <div class="shutter-container">
+                <button id="btn-shutter" class="shutter-photo"></button>
+            </div>
+            <button id="btn-switch-camera" class="icon-btn">
+                <img src="/assets/icons/camera-switch.svg" alt="Switch Camera">
+            </button>
+        </div>
+
+        <!-- Screen Flash for Photo -->
+        <div id="screen-flash"></div>
+    </div>
+
+    <script type="module" src="/scripts/main.js"></script>
+</body>
+</html>

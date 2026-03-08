@@ -1,0 +1,92 @@
+#viewfinder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+#grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.grid-3x3 {
+    background-image: 
+        linear-gradient(to right, transparent 33.33%, rgba(255,255,255,0.3) 33.33%, rgba(255,255,255,0.3) 33.5%, transparent 33.5%, transparent 66.66%, rgba(255,255,255,0.3) 66.66%, rgba(255,255,255,0.3) 66.83%, transparent 66.83%),
+        linear-gradient(to bottom, transparent 33.33%, rgba(255,255,255,0.3) 33.33%, rgba(255,255,255,0.3) 33.5%, transparent 33.5%, transparent 66.66%, rgba(255,255,255,0.3) 66.66%, rgba(255,255,255,0.3) 66.83%, transparent 66.83%);
+}
+
+.grid-4x4 {
+    background-image: 
+        linear-gradient(to right, transparent 25%, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0.3) 25.2%, transparent 25.2%, transparent 50%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 50.2%, transparent 50.2%, transparent 75%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.3) 75.2%, transparent 75.2%),
+        linear-gradient(to bottom, transparent 25%, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0.3) 25.2%, transparent 25.2%, transparent 50%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 50.2%, transparent 50.2%, transparent 75%, rgba(255,255,255,0.3) 75%, rgba(255,255,255,0.3) 75.2%, transparent 75.2%);
+}
+
+#focus-ring {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 1.5px solid #ffd60a;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 5;
+    pointer-events: none;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+}
+
+#focus-ring::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 15px;
+    height: 1px;
+    background: #ffd60a;
+    margin-left: 5px;
+}
+
+#zoom-controls {
+    position: absolute;
+    bottom: 160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.zoom-levels {
+    display: flex;
+    gap: 10px;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.zoom-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.zoom-btn.active {
+    background: rgba(255,255,255,0.2);
+    color: #ffd60a;
+}
